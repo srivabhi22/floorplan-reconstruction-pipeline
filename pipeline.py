@@ -1,10 +1,11 @@
 """
 pipeline.py — Top-level entry point
 
-Runs Modules 1–8 in sequence for a single LiDAR capture.
+Runs Modules 1–8 in sequence for a single LiDAR or video capture.
 
 Usage:
     python pipeline.py --input data/ --tier lidar --output outputs/
+    python pipeline.py --input input/ --tier video --output outputs/
 """
 
 import argparse
@@ -14,6 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from src.lidar.fuse import main as module1
+from src.video.fuse import main as module9
 from src.reconstruction.drift_correction import main as module2
 from src.reconstruction.segment_pipeline import main as module3
 from src.reconstruction.wall_fitting import main as module4
@@ -32,7 +34,10 @@ def run(input_dir: str, tier: str, output_dir: str) -> None:
     print(f"  Input : {input_dir}  |  Tier: {tier}  |  Output: {output_dir}")
     print("══════════════════════════════════════════════════════════════════\n")
 
-    module1(data_dir=input_dir, output_dir=output_dir)
+    if tier == "video":
+        module9(input_dir=input_dir, output_dir=output_dir)
+    else:
+        module1(data_dir=input_dir, output_dir=output_dir)
     print()
     module2(point_cloud_path=str(out / "point_cloud.ply"),
             data_dir=input_dir, output_dir=output_dir)

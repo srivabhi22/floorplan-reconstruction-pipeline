@@ -8,3 +8,5 @@ scikit-learn
 python-dotenv
 torch
 shapely
+safetensors
+trimesh

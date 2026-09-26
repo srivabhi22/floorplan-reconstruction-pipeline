@@ -1,0 +1,10 @@
+{
+  "z_floor_world": -0.264144,
+  "z_ceiling_global": 0.3908,
+  "n_rooms": 3,
+  "per_room_ceiling": {
+    "0": null,
+    "1": -0.0877,
+    "2": 0.1759
+  }
+}

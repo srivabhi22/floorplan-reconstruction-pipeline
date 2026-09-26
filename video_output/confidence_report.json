@@ -1,0 +1,126 @@
+{
+  "tier": "video",
+  "timestamp": "2026-09-26T23:45:43.608937+00:00",
+  "checklist": [
+    {
+      "field": "room_0.floor_area_m2",
+      "value": 1.5518,
+      "status": "warn",
+      "note": "expected 5.0\u2013200.0 m\u00b2"
+    },
+    {
+      "field": "room_0.ceiling_height_m",
+      "value": -0.3669,
+      "status": "warn",
+      "note": "expected 2.0\u20133.5 m"
+    },
+    {
+      "field": "room_0.wall_lengths_m.north",
+      "value": 0.0032,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_0.wall_lengths_m.east",
+      "value": 0.07,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_0.wall_lengths_m.south",
+      "value": 0.0005,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_0.wall_lengths_m.west",
+      "value": 0.0201,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_1.floor_area_m2",
+      "value": 0.0335,
+      "status": "warn",
+      "note": "expected 5.0\u2013200.0 m\u00b2"
+    },
+    {
+      "field": "room_1.ceiling_height_m",
+      "value": 0.1872,
+      "status": "warn",
+      "note": "expected 2.0\u20133.5 m"
+    },
+    {
+      "field": "room_1.wall_lengths_m.north",
+      "value": 0.0568,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_1.wall_lengths_m.east",
+      "value": 0.0227,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_1.wall_lengths_m.south",
+      "value": 0.0259,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_1.wall_lengths_m.west",
+      "value": 0.0445,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_2.floor_area_m2",
+      "value": 0.1556,
+      "status": "warn",
+      "note": "expected 5.0\u2013200.0 m\u00b2"
+    },
+    {
+      "field": "room_2.ceiling_height_m",
+      "value": 0.0241,
+      "status": "warn",
+      "note": "expected 2.0\u20133.5 m"
+    },
+    {
+      "field": "room_2.wall_lengths_m.north",
+      "value": 0.62,
+      "status": "pass",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_2.wall_lengths_m.east",
+      "value": 0.0188,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_2.wall_lengths_m.south",
+      "value": 0.3399,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "room_2.wall_lengths_m.west",
+      "value": 0.0212,
+      "status": "warn",
+      "note": "min 0.5 m"
+    },
+    {
+      "field": "stitched_plan.footprint_m2",
+      "value": 1.741,
+      "status": "pass",
+      "note": "must be > 0"
+    }
+  ],
+  "summary": {
+    "total_checks": 19,
+    "passes": 2,
+    "warns": 17,
+    "fails": 0
+  }
+}
