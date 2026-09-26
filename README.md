@@ -25,7 +25,8 @@ Input
                     Drift Correction (plane-anchor pose graph) ← Module 2 (done)
                                  │
                                  ▼
-                    Floor / Ceiling Detection (RANSAC)
+                    Floor / Ceiling Detection (RANSAC)         ← Module 3 (done)
+                    Wall Slice · Occupancy Grid · Room Clustering
                                  │
                                  ▼
                     Wall Slice at 1.0–1.5 m
@@ -165,6 +166,53 @@ outputs/
 
 ---
 
+## Module 3 — Room Segmentation
+
+**Status: complete**
+
+Takes the drift-corrected point cloud and produces a labelled 2D room layout with floor/ceiling heights.
+
+### Steps
+
+1. RANSAC on the lowest 20 % of points → `z_floor`; normalize all z so floor = 0
+2. RANSAC on the top 20 % of normalized points → global `z_ceiling`
+3. Filter to `1.0 m ≤ z_norm ≤ 1.5 m` — the wall-slice band that cuts through all walls cleanly
+4. Project wall-slice points onto XY plane → 2D binary occupancy grid at 2 cm/cell
+5. DBSCAN (`eps=5 cm`, `min_samples=10`) on occupied cells → one cluster per room; clusters < 50 cells discarded as noise
+6. Per-room ceiling refinement: re-run RANSAC on points above 1.8 m within each room's 2D bounding box
+
+### Run Module 3 standalone
+
+```bash
+python src/reconstruction/segment_pipeline.py \
+  --point_cloud outputs/point_cloud_corrected.ply \
+  --output_dir outputs/
+```
+
+### Source files
+
+```
+src/reconstruction/
+  floor_ceiling.py      # RANSAC floor / ceiling detection, per-room ceiling
+  wall_slice.py         # mid-height band extraction (1.0–1.5 m)
+  occupancy_grid.py     # 2D binary grid + world↔grid coordinate helpers
+  room_segmentation.py  # DBSCAN room clustering, point labelling
+  segment_pipeline.py   # entry point
+```
+
+### Outputs
+
+```
+outputs/
+  floor_ceiling.json         # floor z, global ceiling height, per-room ceiling heights
+  wall_slice.ply             # mid-height point cloud (view with view.py)
+  occupancy_grid.npy         # binary grid + origin / cell_size metadata
+  occupancy_grid.png         # top-down plan image (walls black, free space white)
+  room_segments.npz          # wall-slice point indices + room label per point
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -233,6 +281,11 @@ outputs/
   drift_ablation/
     raw.ply                    # uncorrected cloud (ablation)
     corrected.ply              # corrected cloud (ablation)
+  floor_ceiling.json           # Module 3 — floor z, ceiling heights per room
+  wall_slice.ply               # Module 3 — mid-height wall cross-section
+  occupancy_grid.npy           # Module 3 — 2D binary grid + metadata
+  occupancy_grid.png           # Module 3 — top-down plan image
+  room_segments.npz            # Module 3 — point indices + room labels
   floorplan.json               # final structured output
   floorplan.png                # rendered floor plan
 ```
@@ -296,6 +349,8 @@ pandas
 opencv-python
 scipy
 open3d
+scikit-learn
+matplotlib
 python-dotenv
 torch
 ```
