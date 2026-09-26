@@ -148,6 +148,7 @@ def main(point_cloud_path: str, output_dir: str) -> None:
         str(out / "room_segments.npz"),
         slice_indices=slice_idx,       # indices into the original pts array
         point_labels=point_labels,     # room id per wall-slice point
+        cell_labels=cell_labels,       # room id per occupied grid cell (aligns with np.where(grid==1))
         room_ids=np.array(sorted(room_bounds.keys())),
     )
     print(f"  Saved → {out / 'room_segments.npz'}")

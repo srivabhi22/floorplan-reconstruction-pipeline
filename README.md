@@ -29,6 +29,9 @@ Input
                     Wall Slice · Occupancy Grid · Room Clustering
                                  │
                                  ▼
+                    Wall Polygon Fitting (rectilinear snap)    ← Module 4 (done)
+                                 │
+                                 ▼
                     Wall Slice at 1.0–1.5 m
                                  │
                                  ▼
@@ -213,6 +216,71 @@ outputs/
 
 ---
 
+## Module 4 — Wall Polygon Fitting
+
+**Status: complete**
+
+Takes per-room occupancy grids from Module 3 and produces clean, metric, rectilinear wall polygons for each room.
+
+### Steps
+
+1. Per-room binary mask → `cv2.findContours` → raw metric boundary polygon
+2. PCA on boundary edge vectors → dominant wall angle `theta` (handles non-axis-aligned buildings)
+3. Rotate by `-theta`, snap each segment to nearest axis (H or V, threshold 10°)
+4. Merge collinear consecutive segments → remove grid staircase artifacts
+5. Reconstruct ordered rectilinear polygon, intersect segments at corners, rotate back by `+theta`
+6. Shoelace formula → floor area; Euclidean distances → per-wall lengths
+7. Render all rooms on one canvas with area, ceiling height, and wall-length labels
+
+### Run Module 4 standalone
+
+```bash
+python src/reconstruction/wall_fitting.py \
+  --occupancy_grid outputs/occupancy_grid.npy \
+  --room_segments outputs/room_segments.npz \
+  --floor_ceiling outputs/floor_ceiling.json \
+  --output_dir outputs/
+```
+
+### Source files
+
+```
+src/reconstruction/
+  boundary_extraction.py    # Step 1 — cv2 contour → metric boundary per room
+  orientation_detection.py  # Step 2 — PCA dominant wall angle
+  segment_snapping.py       # Steps 3+4 — axis snap + collinear merge
+  polygon_builder.py        # Step 5 — rectilinear polygon assembly
+  measurements.py           # Step 6 — wall lengths, floor area, validation
+  render.py                 # Step 7 — matplotlib floor plan render
+  wall_fitting.py           # entry point
+```
+
+### Outputs
+
+```
+outputs/
+  wall_polygons.json         # per-room vertices, wall lengths, floor area, ceiling height
+  wall_polygons.png          # rendered top-down floor plan with labels
+```
+
+### wall_polygons.json schema
+
+```json
+{
+  "rooms": {
+    "0": {
+      "vertices": [[x, y], "..."],
+      "wall_lengths_m": [3.2, 4.1, "..."],
+      "floor_area_m2": 12.4,
+      "ceiling_height_m": 2.61,
+      "warnings": []
+    }
+  }
+}
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -286,6 +354,8 @@ outputs/
   occupancy_grid.npy           # Module 3 — 2D binary grid + metadata
   occupancy_grid.png           # Module 3 — top-down plan image
   room_segments.npz            # Module 3 — point indices + room labels
+  wall_polygons.json           # Module 4 — per-room polygons + measurements
+  wall_polygons.png            # Module 4 — rendered floor plan
   floorplan.json               # final structured output
   floorplan.png                # rendered floor plan
 ```
