@@ -32,6 +32,9 @@ Input
                     Wall Polygon Fitting (rectilinear snap)    ← Module 4 (done)
                                  │
                                  ▼
+                    Opening Detection (door / window)          ← Module 5 (done)
+                                 │
+                                 ▼
                     Wall Slice at 1.0–1.5 m
                                  │
                                  ▼
@@ -281,6 +284,64 @@ outputs/
 
 ---
 
+## Module 5 — Opening Detection
+
+**Status: complete**
+
+Detects doors, windows, and archways in wall polygon edges, measures widths with sub-centimetre refinement, and flags concealed (glass) openings.
+
+### Steps
+
+1. Sample each wall polygon edge against the occupancy grid → runs of empty cells = gap candidates; filter to 0.5–4.0 m width range
+2. Refine gap width by fitting lines to 3D wall-slice points on each side of the gap (sub-2 cm precision)
+3. Classify opening type from vertical point-density profile above the gap midpoint: door (floor → 1.9–2.1 m), window (sill 0.7–1.2 m → header 1.6–2.4 m), archway (tall)
+4. Flag low-density gaps as concealed (glass) openings
+5. Save `openings.json` with type, width, sill/header height, wall segment, and confidence interval
+
+### Run Module 5 standalone
+
+```bash
+python src/reconstruction/opening_detection.py \
+  --wall_polygons outputs/wall_polygons.json \
+  --occupancy_grid outputs/occupancy_grid.npy \
+  --point_cloud outputs/point_cloud_corrected.ply \
+  --output_dir outputs/
+```
+
+### Source files
+
+```
+src/reconstruction/
+  gap_detection.py        # Steps 1+2 — grid gap finding, 3D width refinement
+  opening_classifier.py   # Steps 3+4 — vertical profile classification, CI
+  opening_detection.py    # entry point
+```
+
+### Outputs
+
+```
+outputs/
+  openings.json           # per-room list of openings with type, width, position, CI
+```
+
+### openings.json schema (per opening)
+
+```json
+{
+  "room_id": "0",
+  "type": "door",
+  "width_m": 0.91,
+  "sill_height_m": 0.0,
+  "header_height_m": 2.05,
+  "position": [x, y],
+  "wall_segment": 2,
+  "confidence_interval_m": 0.012,
+  "concealed": false
+}
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -356,6 +417,7 @@ outputs/
   room_segments.npz            # Module 3 — point indices + room labels
   wall_polygons.json           # Module 4 — per-room polygons + measurements
   wall_polygons.png            # Module 4 — rendered floor plan
+  openings.json                # Module 5 — detected openings with widths and types
   floorplan.json               # final structured output
   floorplan.png                # rendered floor plan
 ```
