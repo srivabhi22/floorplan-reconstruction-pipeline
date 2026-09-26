@@ -19,10 +19,10 @@ Input
                   + ARKit Poses (from odometry.csv)
                                  │
                                  ▼
-                    Point Cloud Construction       ← Module 1 (LiDAR done)
+                    Point Cloud Construction       ← Module 1 (done)
                                  │
                                  ▼
-                    Drift Correction (plane-anchor pose graph)
+                    Drift Correction (plane-anchor pose graph) ← Module 2 (done)
                                  │
                                  ▼
                     Floor / Ceiling Detection (RANSAC)
@@ -104,6 +104,78 @@ outputs/
 
 ---
 
+## Module 2 — Drift Correction
+
+**Status: complete**
+
+Takes the fused point cloud from Module 1 and corrects accumulated ARKit pose drift so the scene is globally consistent. Uses a pose-graph optimisation (scipy sparse least-squares, no external graph library required).
+
+### Steps
+
+1. Divide 1715 frames into overlapping segments (150 frames, 30-frame overlap) and crop the point cloud to each segment's camera-path bounding box
+2. RANSAC plane detection per segment — fit floor (bottom 20 % of points), ceiling (top 20 %), and dominant wall (mid band)
+3. Build pose graph — sequential edges between adjacent segments (weight 10, locally accurate) and plane-match edges between non-adjacent segments that observe the same physical surface (weight 5)
+4. Optimise pose graph with weighted sparse least-squares — produces a 6-DOF correction delta per segment, anchored at segment 0
+5. Reproject all depth frames using corrected poses (`T_corrected = C_seg @ T_arkit`), re-downsample and clean
+6. Save corrected cloud, ablation pair (raw vs corrected), corrected poses CSV, and print alignment report
+
+### Run Module 2 standalone
+
+```bash
+python src/reconstruction/drift_correction.py \
+  --point_cloud outputs/point_cloud.ply \
+  --data_dir data/ \
+  --output_dir outputs/
+```
+
+### Source files
+
+```
+src/reconstruction/
+  segment.py          # split cloud into overlapping frame-range chunks
+  plane_detection.py  # RANSAC floor / ceiling / wall per segment
+  pose_graph.py       # build graph nodes and sequential + plane-match edges
+  optimize.py         # scipy sparse least-squares solver, delta → 4×4 transform
+  reproject.py        # reproject all frames with corrected poses
+  ablation.py         # save ablation outputs, compute drift metrics
+  drift_correction.py # entry point
+```
+
+### Outputs
+
+```
+outputs/
+  point_cloud_corrected.ply      # drift-corrected world-space point cloud
+  corrected_poses.csv            # optimized per-frame 4×4 transforms (T_00…T_33)
+  drift_ablation/
+    raw.ply                      # uncorrected cloud (for ablation)
+    corrected.ply                # corrected cloud (for ablation)
+```
+
+### Ablation report (printed at end of run)
+
+```
+── Drift Correction Ablation Report ─────────────────────────
+  Pose graph edges   : N sequential, M plane-match
+  Floor plane error  : X.X cm  →  Y.Y cm
+  Closure error      : Z.Z cm  (first→last frame distance)
+  Loop detected      : yes / no
+─────────────────────────────────────────────────────────────
+```
+
+---
+
+## Viewer
+
+View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
+
+```bash
+python view.py outputs/point_cloud.ply
+python view.py outputs/point_cloud_corrected.ply
+```
+
+---
+
 ## Input Format
 
 ### Photo Tier
@@ -155,9 +227,14 @@ timestamp, frame, x, y, z, qx, qy, qz, qw, fx, fy, cx, cy, distortion_center_x, 
 
 ```
 outputs/
-  point_cloud.ply     # intermediate — fused point cloud (Module 1 output)
-  floorplan.json      # final structured output
-  floorplan.png       # rendered floor plan
+  point_cloud.ply              # Module 1 — fused point cloud
+  point_cloud_corrected.ply    # Module 2 — drift-corrected point cloud
+  corrected_poses.csv          # Module 2 — optimized per-frame transforms
+  drift_ablation/
+    raw.ply                    # uncorrected cloud (ablation)
+    corrected.ply              # corrected cloud (ablation)
+  floorplan.json               # final structured output
+  floorplan.png                # rendered floor plan
 ```
 
 **`floorplan.json` schema (per room):**
@@ -219,10 +296,11 @@ pandas
 opencv-python
 scipy
 open3d
+python-dotenv
 torch
 ```
 
 Install:
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
