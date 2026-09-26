@@ -51,18 +51,8 @@ def render_stitched_plan(
         ax.fill(pts[:, 0], pts[:, 1], color=color, alpha=0.4, zorder=1)
         ax.plot(pts[:, 0], pts[:, 1], color="black", linewidth=1.5, zorder=2)
 
-        # Wall length labels at each segment midpoint
-        meta = room_metadata.get(room_id, {})
-        wall_lengths = meta.get("wall_lengths_m", [])
-        n = len(pts) - 1
-        for i in range(min(n, len(wall_lengths))):
-            mid = (pts[i] + pts[i + 1]) / 2
-            ax.text(mid[0], mid[1], f"{wall_lengths[i]:.2f} m",
-                    fontsize=6, ha="center", va="center",
-                    color="dimgray", zorder=4,
-                    bbox=dict(boxstyle="round,pad=0.1", fc="white", alpha=0.6, ec="none"))
-
         # Room centroid label
+        meta = room_metadata.get(room_id, {})
         cx, cy = _polygon_centroid(verts)
         area    = meta.get("floor_area_m2", "?")
         ceiling = meta.get("ceiling_height_m", "?")

@@ -44,17 +44,6 @@ def render_floor_plan(
                 ha="center", va="center", fontsize=8, fontweight="bold",
                 bbox=dict(boxstyle="round,pad=0.2", facecolor="white", alpha=0.6))
 
-        # Wall length labels at segment midpoints
-        lengths = meta.get("wall_lengths", [])
-        n = len(verts)
-        for i, wl in enumerate(lengths):
-            if wl < 0.05:
-                continue
-            mid = (verts[i] + verts[(i + 1) % n]) / 2
-            ax.text(mid[0], mid[1], f"{wl:.2f} m",
-                    ha="center", va="center", fontsize=6, color="#2C3E50",
-                    bbox=dict(boxstyle="round,pad=0.1", facecolor="white", alpha=0.5))
-
     ax.autoscale_view()
     ax.set_xlabel("X (m)", fontsize=10)
     ax.set_ylabel("Y (m)", fontsize=10)
