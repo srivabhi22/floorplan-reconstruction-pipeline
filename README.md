@@ -9,17 +9,15 @@ Produces a dimensioned floor plan from three input tiers: photos, video, or LiDA
 ```
 Input
   │
-  ├── Photos  ──► Monocular Depth (Depth Anything v2)
-  │               + SfM Poses (COLMAP / SuperPoint + LightGlue)
+  ├── Video   ──► Depth Anything V2 (depth)            ← Module 9 (done)
+  │               + ORB + Essential matrix (poses)
+  │               + Floor-plane metric scale recovery
   │                                │
-  ├── Video   ──► Monocular Depth (Depth Anything v2)
-  │               + Visual Odometry (DROID-SLAM / ORB-SLAM3)
-  │                                │
-  └── LiDAR   ──► Confidence Masking
+  └── LiDAR   ──► Confidence Masking                   ← Module 1 (done)
                   + ARKit Poses (from odometry.csv)
                                  │
                                  ▼
-                    Point Cloud Construction       ← Module 1 (done)
+                    Point Cloud Construction
                                  │
                                  ▼
                     Drift Correction (plane-anchor pose graph) ← Module 2 (done)
@@ -41,44 +39,19 @@ Input
                     Damage Detection (SAM + classifier)        ← Module 7 (done)
                                  │
                                  ▼
-                    Confidence Interval Estimation             ← Module 8 (done)
-                                 │
-                                 ▼
                     Output: JSON + Rendered Floor Plan         ← Module 8 (done)
-                                 │
-                                 ▼
-                    Wall Slice at 1.0–1.5 m
-                                 │
-                                 ▼
-                    Room Segmentation (occupancy grid + DBSCAN)
-                                 │
-                                 ▼
-                    Wall Polygon Fitting (rectilinear snap)
-                                 │
-                                 ▼
-                    Opening Detection (door / window classification)
-                                 │
-                                 ▼
-                    Multi-Room Stitching
-                                 │
-                                 ▼
-                    Damage Detection (SAM + classifier)
-                                 │
-                                 ▼
-                    Confidence Interval Estimation
-                                 │
-                                 ▼
-                    Output: JSON + Rendered Floor Plan
 ```
 
 ---
 
 ## Running the Pipeline
 
-Run all 8 modules in sequence with one command:
-
 ```bash
+# LiDAR tier (iPhone Pro data)
 python pipeline.py --input data/ --tier lidar --output outputs/
+
+# Video tier (any smartphone walkthrough video)
+python pipeline.py --input data/ --tier video --output outputs/
 ```
 
 Or run any module standalone (see each module's section below).
@@ -532,6 +505,76 @@ outputs/
 
 ---
 
+## Module 9 — Video Preprocessing
+
+**Status: complete**
+
+Takes a handheld walkthrough video and produces a world-space point cloud in the same format as Module 1 — so Modules 2–8 run unchanged on it.
+
+### Steps
+
+1. Extract every Nth frame from the video as JPEG (default: stride 10, max 60 frames)
+2. Load camera intrinsics from `camera_matrix.csv` if present; otherwise estimate from EXIF focal length or fall back to a 70° horizontal FOV assumption
+3. Estimate per-frame depth maps with **Depth Anything V2 Small** (ViT-S, ~100 MB) running on Apple MPS
+4. Estimate per-frame camera poses via **OpenCV ORB feature matching + Essential matrix decomposition** — sequential frame pairs only, O(N) memory
+5. Recover metric scale by RANSAC-fitting the floor plane in the bottom quarter of each depth map and anchoring camera height to 1.5 m
+6. Unproject depth → camera space → world space (reuses Module 1 math); filter depth range 0.3–8.0 m and depth discontinuities
+7. Voxel downsample (2 cm) + statistical outlier removal → save `point_cloud.ply` and `odometry_video.csv`
+
+### Why not MASt3R
+
+MASt3R was the original plan but caused OOM crashes on Apple Silicon due to its global bundle-adjustment step holding all frames in GPU memory simultaneously. The Depth Anything V2 + ORB approach processes frames sequentially with constant memory and runs comfortably on an M-series MacBook.
+
+### Run Module 9 standalone
+
+```bash
+python -m src.video.fuse --input_dir data/ --output_dir outputs/
+```
+
+### Source files
+
+```
+src/video/
+  frame_extractor.py        # Step 1 — extract frames at fixed stride
+  intrinsics.py             # Step 2 — load or estimate camera intrinsics
+  depth_pose_estimator.py   # Steps 3–5 — Depth Anything V2 depth + ORB poses + scale
+  unproject.py              # Step 6 — depth map → world-space points
+  fuse.py                   # entry point: orchestrates all steps, saves outputs
+```
+
+### Input
+
+```
+data/
+  rgb.mp4               # or walkthrough.mp4 / video.mp4 / any .mov .avi
+  camera_matrix.csv     # optional — 3×3 intrinsic matrix
+```
+
+`camera_matrix.csv` format (3 rows, 3 values each):
+```
+fx,  0,  cx
+ 0, fy,  cy
+ 0,  0,   1
+```
+
+### Outputs
+
+```
+outputs/
+  point_cloud.ply         # fused world-space point cloud (same format as Module 1)
+  odometry_video.csv      # per-frame estimated poses (timestamp, tx, ty, tz, qw, qx, qy, qz)
+```
+
+### Tunable parameters (`.env`)
+
+```
+VIDEO_FRAME_STRIDE=10     # extract every Nth frame
+VIDEO_MAX_FRAMES=60       # cap on total frames processed
+DEPTH_ENCODER=vits        # vits (~100 MB) or vitb (~400 MB, more accurate)
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -667,6 +710,44 @@ outputs/
 
 ---
 
+## External Repository Setup
+
+Module 9 (video tier) requires two third-party repos cloned into `third_party/`. Both are git-ignored — clone them once after checkout.
+
+### Depth Anything V2
+
+```bash
+git clone https://github.com/DepthAnything/Depth-Anything-V2.git third_party/Depth-Anything-V2
+```
+
+Model weights (~100 MB for ViT-S) are downloaded automatically on first run and cached at `models/depth_anything_v2_vits.pth`. To pre-download manually:
+
+```bash
+# ViT-S (default, fastest, least memory)
+curl -L https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth \
+     -o models/depth_anything_v2_vits.pth
+
+# ViT-B (more accurate, ~400 MB) — set DEPTH_ENCODER=vitb in .env
+curl -L https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.pth \
+     -o models/depth_anything_v2_vitb.pth
+```
+
+### MASt3R (optional — not used by default)
+
+MASt3R was evaluated as an alternative for joint depth + pose estimation but caused OOM on Apple Silicon. It is cloned but not called by the current pipeline. Kept for reference / future use.
+
+```bash
+git clone --recursive https://github.com/naver/mast3r.git third_party/mast3r
+```
+
+If you want to experiment with MASt3R, install its extra dependencies:
+
+```bash
+uv pip install einops roma
+```
+
+---
+
 ## Dependencies
 
 ```
@@ -681,9 +762,18 @@ shapely
 jsonschema
 python-dotenv
 torch
+einops      # MASt3R dependency (installed but optional)
+roma        # MASt3R dependency (installed but optional)
 ```
 
 Install:
 ```bash
 uv pip install -r requirements.txt
+```
+
+Third-party repos (git-ignored, clone once):
+```bash
+git clone https://github.com/DepthAnything/Depth-Anything-V2.git third_party/Depth-Anything-V2
+# optional:
+git clone --recursive https://github.com/naver/mast3r.git third_party/mast3r
 ```

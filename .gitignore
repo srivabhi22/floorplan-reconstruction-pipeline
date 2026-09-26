@@ -1,4 +1,5 @@
 /docs
 execution_plan.md
 .env
-/third_party
+third_party/
+/models
