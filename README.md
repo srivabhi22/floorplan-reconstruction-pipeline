@@ -35,6 +35,9 @@ Input
                     Opening Detection (door / window)          ← Module 5 (done)
                                  │
                                  ▼
+                    Multi-Room Stitching                       ← Module 6 (done)
+                                 │
+                                 ▼
                     Wall Slice at 1.0–1.5 m
                                  │
                                  ▼
@@ -342,6 +345,64 @@ outputs/
 
 ---
 
+## Module 6 — Multi-Room Stitching
+
+**Status: complete**
+
+Composes all per-room polygons and openings into a single whole-property floor plan with adjacency graph, overlap resolution, and global footprint.
+
+### Steps
+
+1. All room polygons are already in ARKit world coordinates — no relative transform needed
+2. Match openings across rooms by position proximity (≤ 10 cm) → adjacency graph (nodes = rooms, edges = shared openings with type and width)
+3. Detect polygon overlaps via Shapely intersection; resolve with minimal rigid translation anchored at the shared opening position; flag shifts > 5 cm
+4. Flag any room with no adjacency edges as disconnected
+5. `shapely.unary_union` of all room polygons → total footprint area m²
+6. Render all rooms, openings (door = brown square, window = blue diamond), wall lengths, room labels, and adjacency edges on one canvas
+
+### Run Module 6 standalone
+
+```bash
+python src/reconstruction/stitching.py \
+  --wall_polygons outputs/wall_polygons.json \
+  --openings outputs/openings.json \
+  --output_dir outputs/
+```
+
+### Source files
+
+```
+src/reconstruction/
+  adjacency.py          # Steps 2+4 — opening matching, disconnected room detection
+  overlap_resolver.py   # Step 3 — Shapely intersection check + translation fix
+  footprint.py          # Step 5 — Shapely unary_union, total area
+  stitch_render.py      # Step 6 — whole-property floor plan render
+  stitching.py          # entry point
+```
+
+### Outputs
+
+```
+outputs/
+  stitched_plan.json    # all rooms, adjacency graph, footprint area, overlap log
+  stitched_plan.png     # rendered whole-property floor plan
+```
+
+### stitched_plan.json top-level keys
+
+```json
+{
+  "rooms": { "0": { "vertices": [...], "floor_area_m2": 12.4, ... } },
+  "adjacency": [{ "room_a": "0", "room_b": "1", "type": "door", "width_m": 0.91 }],
+  "disconnected_rooms": [],
+  "footprint_m2": 38.6,
+  "footprint_boundary": [[x, y], "..."],
+  "overlap_corrections": []
+}
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -418,6 +479,8 @@ outputs/
   wall_polygons.json           # Module 4 — per-room polygons + measurements
   wall_polygons.png            # Module 4 — rendered floor plan
   openings.json                # Module 5 — detected openings with widths and types
+  stitched_plan.json           # Module 6 — full property plan with adjacency graph
+  stitched_plan.png            # Module 6 — rendered whole-property floor plan
   floorplan.json               # final structured output
   floorplan.png                # rendered floor plan
 ```
@@ -483,6 +546,7 @@ scipy
 open3d
 scikit-learn
 matplotlib
+shapely
 python-dotenv
 torch
 ```
