@@ -18,7 +18,8 @@ def compute_footprint(room_polygons: dict) -> tuple[float, list]:
         (footprint_area_m2, boundary_coords)
         boundary_coords is a list of [x, y] pairs forming the outer hull.
     """
-    polys = [Polygon(verts) for verts in room_polygons.values() if len(verts) >= 4]
+    polys = [Polygon(verts).buffer(0) for verts in room_polygons.values() if len(verts) >= 4]
+    polys = [p for p in polys if p.is_valid and not p.is_empty]
     if not polys:
         return 0.0, []
 

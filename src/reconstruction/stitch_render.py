@@ -66,7 +66,7 @@ def render_stitched_plan(
         cx, cy = _polygon_centroid(verts)
         area    = meta.get("floor_area_m2", "?")
         ceiling = meta.get("ceiling_height_m", "?")
-        label   = f"Room {room_id}\n{area:.1f} m²\nh={ceiling:.2f} m" if isinstance(area, float) else f"Room {room_id}"
+        label   = f"Room {room_id}\n{area:.1f} m²\nh={ceiling:.2f} m" if isinstance(area, float) and isinstance(ceiling, float) else f"Room {room_id}"
         ax.text(cx, cy, label, fontsize=8, ha="center", va="center",
                 fontweight="bold", zorder=5,
                 bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.75, ec="gray"))

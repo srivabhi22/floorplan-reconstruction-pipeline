@@ -2,7 +2,7 @@
   "damage": [
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.1472,
       "centroid_world": [
@@ -16,7 +16,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0083,
       "centroid_world": [
@@ -29,8 +29,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "south_wall",
+      "room_id": "0",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0016,
       "centroid_world": [
@@ -44,7 +44,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0007,
       "centroid_world": [
@@ -57,8 +57,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.1352,
       "centroid_world": [
@@ -71,8 +71,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0323,
       "centroid_world": [
@@ -85,7 +85,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -99,7 +99,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -113,8 +113,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.1596,
       "centroid_world": [
@@ -127,7 +127,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -141,8 +141,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -155,7 +155,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.1497,
@@ -169,8 +169,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -183,8 +183,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.1538,
       "centroid_world": [
@@ -197,7 +197,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0235,
@@ -211,7 +211,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.1479,
@@ -226,7 +226,7 @@
     },
     {
       "room_id": "0",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -310,7 +310,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0041,
       "centroid_world": [
@@ -338,7 +338,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.016,
       "centroid_world": [
@@ -351,8 +351,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0122,
       "centroid_world": [
@@ -366,7 +366,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.006,
       "centroid_world": [
@@ -379,8 +379,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -394,7 +394,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0096,
       "centroid_world": [
@@ -407,8 +407,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0095,
       "centroid_world": [
@@ -422,7 +422,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -436,7 +436,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.267,
       "centroid_world": [
@@ -449,7 +449,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0036,
@@ -464,7 +464,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0159,
       "centroid_world": [
@@ -477,8 +477,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0016,
       "centroid_world": [
@@ -492,7 +492,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0026,
       "centroid_world": [
@@ -520,7 +520,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0038,
       "centroid_world": [
@@ -533,7 +533,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
+      "room_id": "2",
       "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0027,
@@ -547,7 +547,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0052,
@@ -562,7 +562,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0054,
       "centroid_world": [
@@ -576,7 +576,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0064,
       "centroid_world": [
@@ -590,7 +590,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -604,7 +604,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -618,7 +618,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.3491,
       "centroid_world": [
@@ -632,7 +632,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0031,
       "centroid_world": [
@@ -646,7 +646,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0248,
       "centroid_world": [
@@ -660,7 +660,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0016,
       "centroid_world": [
@@ -674,7 +674,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0043,
       "centroid_world": [
@@ -688,7 +688,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0113,
       "centroid_world": [
@@ -702,7 +702,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.001,
       "centroid_world": [
@@ -716,7 +716,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0006,
       "centroid_world": [
@@ -729,8 +729,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.3445,
       "centroid_world": [
@@ -743,8 +743,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -757,8 +757,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -771,8 +771,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0112,
       "centroid_world": [
@@ -785,7 +785,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0021,
@@ -813,8 +813,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.3207,
       "centroid_world": [
@@ -827,7 +827,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -841,8 +841,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0005,
       "centroid_world": [
@@ -855,8 +855,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.016,
       "centroid_world": [
@@ -869,8 +869,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -883,8 +883,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -897,8 +897,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.2953,
       "centroid_world": [
@@ -911,8 +911,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0015,
       "centroid_world": [
@@ -925,7 +925,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0008,
@@ -939,7 +939,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -953,7 +953,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0059,
@@ -967,7 +967,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0001,
@@ -981,8 +981,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -996,7 +996,7 @@
     },
     {
       "room_id": "0",
-      "surface": "south_wall",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.2767,
       "centroid_world": [
@@ -1009,8 +1009,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0021,
       "centroid_world": [
@@ -1024,7 +1024,7 @@
     },
     {
       "room_id": "0",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -1037,8 +1037,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0005,
       "centroid_world": [
@@ -1052,7 +1052,7 @@
     },
     {
       "room_id": "0",
-      "surface": "east_wall",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -1065,7 +1065,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0016,
@@ -1079,7 +1079,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0068,
@@ -1093,8 +1093,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0974,
       "centroid_world": [
@@ -1107,8 +1107,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "south_wall",
+      "room_id": "0",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0141,
       "centroid_world": [
@@ -1121,7 +1121,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0012,
@@ -1136,7 +1136,7 @@
     },
     {
       "room_id": "1",
-      "surface": "east_wall",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.006,
       "centroid_world": [
@@ -1149,7 +1149,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0008,
@@ -1163,8 +1163,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0194,
       "centroid_world": [
@@ -1177,8 +1177,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0132,
       "centroid_world": [
@@ -1191,8 +1191,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -1206,7 +1206,7 @@
     },
     {
       "room_id": "1",
-      "surface": "east_wall",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0143,
       "centroid_world": [
@@ -1219,8 +1219,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -1233,7 +1233,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -1247,8 +1247,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0056,
       "centroid_world": [
@@ -1261,8 +1261,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0007,
       "centroid_world": [
@@ -1275,7 +1275,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.1177,
@@ -1289,8 +1289,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0006,
       "centroid_world": [
@@ -1303,8 +1303,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0021,
       "centroid_world": [
@@ -1317,7 +1317,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0787,
@@ -1331,7 +1331,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0049,
@@ -1345,8 +1345,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -1359,8 +1359,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0026,
       "centroid_world": [
@@ -1373,8 +1373,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -1387,8 +1387,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0588,
       "centroid_world": [
@@ -1401,8 +1401,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -1415,8 +1415,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0057,
       "centroid_world": [
@@ -1429,8 +1429,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0046,
       "centroid_world": [
@@ -1444,7 +1444,7 @@
     },
     {
       "room_id": "1",
-      "surface": "east_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0032,
       "centroid_world": [
@@ -1458,7 +1458,7 @@
     },
     {
       "room_id": "0",
-      "surface": "north_wall",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0028,
       "centroid_world": [
@@ -1485,8 +1485,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -1499,7 +1499,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0006,
@@ -1513,8 +1513,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0104,
       "centroid_world": [
@@ -1527,8 +1527,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -1541,7 +1541,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.009,
@@ -1555,8 +1555,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -1569,8 +1569,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -1583,7 +1583,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0118,
@@ -1597,7 +1597,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0011,
@@ -1611,7 +1611,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0337,
@@ -1625,7 +1625,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0049,
@@ -1639,7 +1639,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0009,
@@ -1653,7 +1653,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "2",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0039,
@@ -1667,7 +1667,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0052,
@@ -1681,7 +1681,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0003,
@@ -1695,7 +1695,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0007,
@@ -1709,7 +1709,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0009,
@@ -1723,8 +1723,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0153,
       "centroid_world": [
@@ -1737,8 +1737,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.005,
       "centroid_world": [
@@ -1751,8 +1751,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0024,
       "centroid_world": [
@@ -1765,8 +1765,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "west_wall",
+      "room_id": "0",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -1779,8 +1779,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.005,
       "centroid_world": [
@@ -1793,7 +1793,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0084,
@@ -1807,7 +1807,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0005,
@@ -1821,8 +1821,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -1835,7 +1835,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0006,
@@ -1850,7 +1850,7 @@
     },
     {
       "room_id": "1",
-      "surface": "south_wall",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0028,
       "centroid_world": [
@@ -1863,8 +1863,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.177,
       "centroid_world": [
@@ -1877,8 +1877,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0006,
       "centroid_world": [
@@ -1891,7 +1891,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -1905,8 +1905,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.5428,
       "centroid_world": [
@@ -1920,7 +1920,7 @@
     },
     {
       "room_id": "1",
-      "surface": "west_wall",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -1933,8 +1933,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0038,
       "centroid_world": [
@@ -1947,8 +1947,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -1961,7 +1961,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0006,
@@ -1975,7 +1975,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -1989,8 +1989,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.454,
       "centroid_world": [
@@ -2004,7 +2004,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -2017,8 +2017,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -2031,7 +2031,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
+      "room_id": "2",
       "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0001,
@@ -2045,8 +2045,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0477,
       "centroid_world": [
@@ -2074,7 +2074,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0486,
       "centroid_world": [
@@ -2087,8 +2087,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "south_wall",
+      "room_id": "0",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.015,
       "centroid_world": [
@@ -2102,7 +2102,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0127,
       "centroid_world": [
@@ -2116,7 +2116,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0392,
       "centroid_world": [
@@ -2144,7 +2144,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0021,
       "centroid_world": [
@@ -2157,8 +2157,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "east_wall",
+      "room_id": "0",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0029,
       "centroid_world": [
@@ -2172,7 +2172,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0019,
       "centroid_world": [
@@ -2186,7 +2186,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.2235,
       "centroid_world": [
@@ -2200,7 +2200,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0093,
       "centroid_world": [
@@ -2213,8 +2213,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0022,
       "centroid_world": [
@@ -2228,7 +2228,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -2242,7 +2242,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2256,7 +2256,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -2270,7 +2270,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0572,
       "centroid_world": [
@@ -2283,8 +2283,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0031,
       "centroid_world": [
@@ -2298,7 +2298,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2325,7 +2325,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
+      "room_id": "2",
       "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0015,
@@ -2340,7 +2340,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0428,
       "centroid_world": [
@@ -2354,7 +2354,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0013,
       "centroid_world": [
@@ -2368,7 +2368,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0016,
       "centroid_world": [
@@ -2396,7 +2396,7 @@
     },
     {
       "room_id": "2",
-      "surface": "east_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.1915,
       "centroid_world": [
@@ -2409,8 +2409,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -2424,7 +2424,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0003,
       "centroid_world": [
@@ -2437,8 +2437,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2451,7 +2451,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
+      "room_id": "2",
       "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0001,
@@ -2465,8 +2465,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "north_wall",
+      "room_id": "0",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0027,
       "centroid_world": [
@@ -2480,7 +2480,7 @@
     },
     {
       "room_id": "2",
-      "surface": "west_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0007,
       "centroid_world": [
@@ -2493,8 +2493,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
-      "surface": "west_wall",
+      "room_id": "0",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0167,
       "centroid_world": [
@@ -2507,8 +2507,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2521,8 +2521,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "west_wall",
+      "room_id": "2",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0017,
       "centroid_world": [
@@ -2536,7 +2536,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0391,
       "centroid_world": [
@@ -2550,7 +2550,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0412,
       "centroid_world": [
@@ -2564,7 +2564,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0016,
       "centroid_world": [
@@ -2577,7 +2577,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "2",
+      "room_id": "0",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0013,
@@ -2592,7 +2592,7 @@
     },
     {
       "room_id": "2",
-      "surface": "north_wall",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0033,
       "centroid_world": [
@@ -2620,7 +2620,7 @@
     },
     {
       "room_id": "2",
-      "surface": "south_wall",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.1556,
       "centroid_world": [
@@ -2633,8 +2633,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
-      "surface": "east_wall",
+      "room_id": "2",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -2647,8 +2647,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2661,8 +2661,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.1652,
       "centroid_world": [
@@ -2689,8 +2689,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.1022,
       "centroid_world": [
@@ -2703,8 +2703,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -2717,8 +2717,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.043,
       "centroid_world": [
@@ -2731,8 +2731,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.093,
       "centroid_world": [
@@ -2745,7 +2745,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "1",
+      "room_id": "0",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -2760,7 +2760,7 @@
     },
     {
       "room_id": "0",
-      "surface": "south_wall",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.6505,
       "centroid_world": [
@@ -2773,8 +2773,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -2787,8 +2787,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -2802,7 +2802,7 @@
     },
     {
       "room_id": "0",
-      "surface": "east_wall",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0004,
       "centroid_world": [
@@ -2815,8 +2815,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0353,
       "centroid_world": [
@@ -2829,8 +2829,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -2843,8 +2843,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 0.0005,
       "centroid_world": [
@@ -2857,8 +2857,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 1.0703,
       "centroid_world": [
@@ -2871,8 +2871,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0187,
       "centroid_world": [
@@ -2885,8 +2885,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2899,8 +2899,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "west_wall",
       "class": "concealed",
       "area_m2": 1.158,
       "centroid_world": [
@@ -2913,7 +2913,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
@@ -2927,8 +2927,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -2941,7 +2941,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 1.2125,
@@ -2955,8 +2955,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "north_wall",
+      "room_id": "1",
+      "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0002,
       "centroid_world": [
@@ -2969,8 +2969,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0009,
       "centroid_world": [
@@ -2983,8 +2983,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0048,
       "centroid_world": [
@@ -2997,8 +2997,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "east_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 1.0582,
       "centroid_world": [
@@ -3011,8 +3011,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
       "centroid_world": [
@@ -3025,8 +3025,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.6058,
       "centroid_world": [
@@ -3039,8 +3039,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "west_wall",
+      "room_id": "1",
+      "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0,
       "centroid_world": [
@@ -3053,7 +3053,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0002,
@@ -3067,7 +3067,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0001,
@@ -3081,8 +3081,8 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
-      "surface": "south_wall",
+      "room_id": "1",
+      "surface": "east_wall",
       "class": "concealed",
       "area_m2": 0.0018,
       "centroid_world": [
@@ -3095,7 +3095,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0037,
@@ -3109,7 +3109,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "south_wall",
       "class": "concealed",
       "area_m2": 0.0014,
@@ -3123,7 +3123,7 @@
       "rule_fired": "depth_anomaly"
     },
     {
-      "room_id": "0",
+      "room_id": "1",
       "surface": "north_wall",
       "class": "concealed",
       "area_m2": 0.0008,

@@ -12,7 +12,7 @@ from shapely.geometry import Polygon
 
 
 def _to_shapely(vertices: list) -> Polygon:
-    return Polygon(vertices)
+    return Polygon(vertices).buffer(0)
 
 
 def detect_overlaps(room_polygons: dict) -> list[dict]:

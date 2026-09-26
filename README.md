@@ -41,6 +41,12 @@ Input
                     Damage Detection (SAM + classifier)        ← Module 7 (done)
                                  │
                                  ▼
+                    Confidence Interval Estimation             ← Module 8 (done)
+                                 │
+                                 ▼
+                    Output: JSON + Rendered Floor Plan         ← Module 8 (done)
+                                 │
+                                 ▼
                     Wall Slice at 1.0–1.5 m
                                  │
                                  ▼
@@ -69,9 +75,13 @@ Input
 
 ## Running the Pipeline
 
+Run all 8 modules in sequence with one command:
+
 ```bash
-python pipeline.py --input <input_dir> --tier <photo|video|lidar> --output <output_dir>
+python pipeline.py --input data/ --tier lidar --output outputs/
 ```
+
+Or run any module standalone (see each module's section below).
 
 ---
 
@@ -479,6 +489,49 @@ outputs/
 
 ---
 
+## Module 8 — Output Assembly
+
+**Status: complete**
+
+Aggregates all upstream outputs into the final deliverables: `floorplan.json`, `floorplan.png`, and `confidence_report.json`.
+
+### Steps
+
+1. Load all intermediate JSONs + corrected point cloud
+2. Compute per-measurement confidence intervals using point density and LiDAR confidence fraction: `CI = base_error × tier_scalar / √N × (1 + (1 − high_conf_frac))`
+3. Assemble unified JSON to published schema; generate scope line items (human-readable remediation notes keyed to surfaces)
+4. Schema validation via jsonschema; gate checklist (floor area 5–200 m², ceiling 2–3.5 m, openings 0.5–3 m, footprint > 0) — fails loudly on missing required fields
+5. Render final annotated floor plan: walls, openings (door/window markers + width labels), damage overlays (coloured circles by class), room labels, north arrow, scale bar
+6. Save `confidence_report.json` with per-field pass/warn/fail status
+
+### Run Module 8 standalone
+
+```bash
+python src/output/output_pipeline.py --outputs_dir outputs/ --tier lidar
+```
+
+### Source files
+
+```
+src/output/
+  confidence.py       # CI formula, point-density estimation
+  assembler.py        # unified JSON assembly + scope line items
+  validator.py        # jsonschema validation + gate checklist
+  renderer.py         # final annotated floor plan render
+  output_pipeline.py  # entry point
+```
+
+### Final outputs
+
+```
+outputs/
+  floorplan.json           # unified schema — rooms, openings, damage, adjacency, CIs
+  floorplan.png            # annotated floor plan (150 DPI)
+  confidence_report.json   # per-measurement pass/warn/fail checklist
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -558,8 +611,9 @@ outputs/
   stitched_plan.json           # Module 6 — full property plan with adjacency graph
   stitched_plan.png            # Module 6 — rendered whole-property floor plan
   damage.json                  # Module 7 — per-surface damage regions
-  floorplan.json               # final structured output
-  floorplan.png                # rendered floor plan
+  floorplan.json               # Module 8 — final unified output (published schema)
+  floorplan.png                # Module 8 — final annotated floor plan (150 DPI)
+  confidence_report.json       # Module 8 — per-measurement CI + gate checklist
 ```
 
 **`floorplan.json` schema (per room):**
@@ -624,6 +678,7 @@ open3d
 scikit-learn
 matplotlib
 shapely
+jsonschema
 python-dotenv
 torch
 ```
