@@ -38,6 +38,9 @@ Input
                     Multi-Room Stitching                       ← Module 6 (done)
                                  │
                                  ▼
+                    Damage Detection (SAM + classifier)        ← Module 7 (done)
+                                 │
+                                 ▼
                     Wall Slice at 1.0–1.5 m
                                  │
                                  ▼
@@ -403,6 +406,79 @@ outputs/
 
 ---
 
+## Module 7 — Damage Detection
+
+**Status: complete**
+
+Detects visible and concealed surface damage in RGB frames, classifies by type, computes metric area, and maps each region to a named surface in the floor plan.
+
+### Steps
+
+1. Select keyframes by pose-change (≥ 0.3 m translation since last key) or stride (every 10th frame)
+2. Damage segmentation per frame — tries SAM → SegFormer → HSV colour-threshold fallback in order; fallback is always available without ML models
+3. Back-project pixel damage masks to 3D world-space points using depth frame + camera pose
+4. Assign each 3D cluster to the nearest named surface (room_id + wall/floor/ceiling name)
+5. Fit a plane to the cluster via SVD, project to 2D, compute convex hull area → metric m²
+6. Concealed damage: `depth_anomaly` (depth deviates > 5 cm from fitted surface plane) or `low_confidence_region` (> 40 % of masked pixels at LiDAR confidence 0)
+7. Deduplicate: merge clusters within 10 cm with the same class, sum areas
+8. Save `damage.json`
+
+### Segmentation backends (in priority order)
+
+| Backend | Requires | Quality |
+|---|---|---|
+| SAM + colour classifier | `segment-anything` + checkpoint at `SAM_CHECKPOINT` | Best |
+| SegFormer | `transformers` | Good |
+| HSV colour threshold | nothing extra | Always available |
+
+### Run Module 7 standalone
+
+```bash
+python src/damage/damage_pipeline.py \
+  --data_dir data/ \
+  --wall_polygons outputs/wall_polygons.json \
+  --stitched_plan outputs/stitched_plan.json \
+  --output_dir outputs/
+```
+
+### Source files
+
+```
+src/damage/
+  frame_selector.py       # Step 1 — keyframe selection (pose-change or stride)
+  segmentation.py         # Step 2 — SAM / SegFormer / HSV fallback
+  backproject.py          # Step 3 — pixel mask → 3D world points
+  surface_assignment.py   # Step 4 — nearest named surface lookup
+  area_computation.py     # Step 5 — SVD plane fit + convex hull area
+  concealed_detection.py  # Step 6 — depth anomaly + low-confidence rules
+  deduplication.py        # Step 7 — cluster merging across frames
+  damage_pipeline.py      # entry point
+```
+
+### Outputs
+
+```
+outputs/
+  damage.json             # per-surface damage list with class, area, confidence, concealed flag
+```
+
+### damage.json schema (per entry)
+
+```json
+{
+  "room_id": "0",
+  "surface": "north_wall",
+  "class": "water_stain",
+  "area_m2": 0.28,
+  "centroid_world": [x, y, z],
+  "confidence": 0.87,
+  "concealed": false,
+  "rule_fired": null
+}
+```
+
+---
+
 ## Viewer
 
 View any `.ply` file with a world-space origin frame (X=red, Y=green, Z=blue):
@@ -481,6 +557,7 @@ outputs/
   openings.json                # Module 5 — detected openings with widths and types
   stitched_plan.json           # Module 6 — full property plan with adjacency graph
   stitched_plan.png            # Module 6 — rendered whole-property floor plan
+  damage.json                  # Module 7 — per-surface damage regions
   floorplan.json               # final structured output
   floorplan.png                # rendered floor plan
 ```
